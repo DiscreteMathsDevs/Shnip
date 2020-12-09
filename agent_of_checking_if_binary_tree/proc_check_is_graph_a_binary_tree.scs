@@ -1,0 +1,261 @@
+scp_program -> proc_check_is_graph_a_binary_tree (*
+	
+	-> rrel_params: ... 
+	(*
+		-> rrel_1: rrel_in: _graph;;
+	*);;
+
+	-> rrel_operators: ... (*
+
+		-> rrel_init: ..proc_check_is_graph_a_binary_tree_operator0 
+		(*
+			<- searchElStr3;;
+
+    		-> rrel_1: rrel_fixed: rrel_scp_const: concept_binary_tree;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc2;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator_return;;		
+		 	=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator1;;	
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator1
+		(*
+			<- genEl;;
+
+			-> rrel_1: rrel_assign: rrel_node: rrel_link: rrel_const: rrel_scp_var: _counter;;
+			
+			=> nrel_goto: ..proc_check_is_graph_a_binary_tree_operator2;;
+		*);; 
+		
+		-> ..proc_check_is_graph_a_binary_tree_operator2 
+		(*
+		  	<- contAssign;;
+		  	-> rrel_1: rrel_fixed: rrel_scp_var: _counter;;
+		  	-> rrel_2: rrel_fixed: rrel_scp_const: [0];;
+
+		    => nrel_goto: ..proc_check_is_graph_a_binary_tree_operator3;;
+		*);;
+
+// creating _not_checked_vertexes
+		-> ..proc_check_is_graph_a_binary_tree_operator3 
+		(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _nodes_set;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc2;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_nodes;;
+				
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator3_1;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator_return;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator3_1 
+		(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _nodes_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes;;
+				
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator3_2;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator_return;;
+		*);;
+
+// creating _check1
+		-> ..proc_check_is_graph_a_binary_tree_operator3_2
+		(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _nodes_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _check1;;
+				
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator3_3;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator_return;;
+		*);;
+
+// creating _check2
+		-> ..proc_check_is_graph_a_binary_tree_operator3_3
+		(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _nodes_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _check2;;
+				
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator3_4;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator_return;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator3_4
+		(*
+			<- searchSetStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _nodes_set;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc1;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+
+			-> rrel_set_3: rrel_assign: rrel_scp_var: _not_checked_vertexes2;;
+				
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator4;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator_return;;
+		*);;
+
+//arc_it - 5
+		-> ..proc_check_is_graph_a_binary_tree_operator4 
+		(*
+			<- searchSetStr5;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _graph;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc3;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _set_arcs;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc4;;
+			-> rrel_5: rrel_fixed: rrel_scp_const: rrel_arcs;;
+			
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator5;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator3;;
+		*);;
+
+//check_it - 3
+//taking element of cycle
+		-> ..proc_check_is_graph_a_binary_tree_operator5 
+		(*
+			<- searchElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc5;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+			
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator6;;
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator7;;
+		*);;
+
+//check1
+		-> ..proc_check_is_graph_a_binary_tree_operator6 
+		(*
+			<- searchElStr5;;
+				
+			-> rrel_1: rrel_fixed: rrel_scp_var: _node;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc6;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _sec_node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc7;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _set_arcs;;
+			
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator6_1;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator6_1_1;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator6_1_1 
+		(*
+			<- eraseEl;;
+			
+			-> rrel_1: rrel_fixed: rrel_pos_const_perm: rrel_scp_var: _arc5;;
+			
+			=> nrel_goto: ..proc_check_is_graph_a_binary_tree_operator5;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator6_1 
+		(*
+			<- searchElStr3;;
+				
+			-> rrel_1: rrel_fixed: rrel_scp_var: _check1;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc8;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _sec_node;;
+			
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator6_2;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator_return;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator6_2 
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: rrel_erase: _arc8;;
+			
+			=> nrel_goto: ..proc_check_is_graph_a_binary_tree_operator6;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator7 
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _not_checked_vertexes2;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc9;;
+			-> rrel_3: rrel_assign: rrel_scp_var: _node;;
+			
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator8;;
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator_success;;
+		*);;
+
+//check2
+		-> ..proc_check_is_graph_a_binary_tree_operator8 
+		(*
+			<- searchElStr5;;
+			
+			-> rrel_1: rrel_assign: rrel_scp_var: _sec_node;;
+			-> rrel_2: rrel_assign: rrel_common: rrel_scp_var: _arc10;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _node;;
+			-> rrel_4: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc11;;
+			-> rrel_5: rrel_fixed: rrel_scp_var: _set_arcs;;
+			
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator8_1;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator8_1_1;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator8_1_1 
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_pos_const_perm: rrel_scp_var: _arc9;;
+			
+			=> nrel_goto: ..proc_check_is_graph_a_binary_tree_operator7;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator8_1 
+		(*
+			<- searchElStr3;;
+
+			-> rrel_1: rrel_fixed: rrel_scp_var: _check1;;
+			-> rrel_2: rrel_assign: rrel_pos_const_perm: rrel_scp_var: _arc12;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _sec_node;;
+			
+			=> nrel_then: ..proc_check_is_graph_a_binary_tree_operator8_2;;		
+			=> nrel_else: ..proc_check_is_graph_a_binary_tree_operator_return;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator8_2 
+		(*
+			<- eraseEl;;
+
+			-> rrel_1: rrel_fixed: rrel_pos_const_perm: rrel_scp_var: _arc12;;
+			
+			=> nrel_goto: ..proc_check_is_graph_a_binary_tree_operator8;;
+		*);;
+
+		-> ..proc_check_is_graph_a_binary_tree_operator_success
+		(*
+			<- genElStr3;;
+			
+			-> rrel_1: rrel_fixed: rrel_scp_var: concept_binary_tree;;
+			-> rrel_2: rrel_assign: rrel_scp_var: rrel_pos_const_perm: _arc_success;;
+			-> rrel_3: rrel_fixed: rrel_scp_var: _graph;;
+					
+			=> nrel_goto: ..proc_check_is_graph_a_binary_tree_operator_return;;
+		*);;
+
+		->..proc_check_is_graph_a_binary_tree_operator_return
+		(*
+			<-return;;
+		*);;
+
+	*);;
+*);;
